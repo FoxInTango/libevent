@@ -1,3 +1,0 @@
-/** epoll  */
-/** poll   */
-/** select */
