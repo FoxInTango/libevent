@@ -12,10 +12,10 @@ int libevent_shutdown() {
     return 0;
 }
 
-int libevent_listen(const int& fd, EventHandler* handler){
+int libevent_listen(EventTarget* target, EventHandler* handler){
     return 0;
 }
 
-int libevent_discard(const int& fd){
+int libevent_discard(EventTarget* target){
     return 0;
 }

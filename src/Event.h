@@ -11,8 +11,9 @@ typedef struct _ev_event {
 namespaceBegin(foxintango)
 
 class EventSession;
-class foxintangoAPI Event :public Model {
+class foxintangoAPI Event {
 private:
+    Model* entity;
     EventSession* session;
 public:
     Event();

@@ -2,6 +2,7 @@
 #define _LIB_EVENT_H_
 
 #include "Event.h"
+#include "EventTarget.h"
 #include "EventReactor.h"
 #include "EventHandler.h"
 #include "EventSession.h"
@@ -28,8 +29,8 @@ extern "C" {
     int foxintangoAPI libevent_reload(const Model& model);
     int foxintangoAPI libevent_shutdown();
 
-    int foxintangoAPI libevent_listen(const int& fd,EventHandler* handler);
-    int foxintangoAPI libevent_discard(const int& fd);
+    int foxintangoAPI libevent_listen(EventTarget* target,EventHandler* handler);
+    int foxintangoAPI libevent_discard(EventTarget* target);
 
 #ifdef __cplusplus
 }

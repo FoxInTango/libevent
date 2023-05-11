@@ -1,5 +1,6 @@
 #ifndef _EVENT_REACTOR_H_
 #define _EVENT_REACTOR_H_
+#include "EventTarget.h"
 #include <libcpp/libcpp.h>
 
 namespaceBegin(foxintango)
