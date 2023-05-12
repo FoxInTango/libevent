@@ -10,10 +10,12 @@ typedef struct _ev_event {
 
 namespaceBegin(foxintango)
 
+class EventHandler;
 class EventSession;
 class foxintangoAPI Event {
 private:
     Model* entity;
+    EventHandler* handler;
     EventSession* session;
 public:
     Event();

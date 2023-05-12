@@ -1,5 +1,6 @@
 #ifndef _EVENT_TARGET_H_
 #define _EVENT_TARGET_H_
+#include "EventHandler.h"
 #include <libcpp/libcpp.h>
 
 namespaceBegin(foxintango)
@@ -10,7 +11,7 @@ public:
     virtual ~EventTargetAction();
 };
 */
-class foxintangoAPI EventTarget {
+class foxintangoAPI EventTarget :public EventHandler{
 public:
     EventTarget();
     virtual ~EventTarget();

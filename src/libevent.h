@@ -29,7 +29,7 @@ extern "C" {
     int foxintangoAPI libevent_reload(const Model& model);
     int foxintangoAPI libevent_shutdown();
 
-    int foxintangoAPI libevent_listen(EventTarget* target,EventHandler* handler);
+    int foxintangoAPI libevent_listen(EventTarget* target);
     int foxintangoAPI libevent_discard(EventTarget* target);
 
 #ifdef __cplusplus

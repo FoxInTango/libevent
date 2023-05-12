@@ -3,7 +3,7 @@ using namespace foxintango;
 #include <map>
 #include <atomic>
 
-// LOAD FROM MODEL
+// TODO : LOAD FROM MODEL
 unsigned int max_event_count = 1024;
 unsigned int max_accept_count = 1024;
 int platform_io_process(EventReactor* reactor, EventTarget* target);
@@ -21,10 +21,10 @@ int platform_io_process(EventReactor* reactor, EventTarget* target);
 #include <sys/sendfile.h>
 
 // 将文件描述符设置成非阻塞
-int setnonblocking(int fd) {
-    int old_option = fcntl(fd, F_GETFL);
+int setnonblocking(int handle) {
+    int old_option = fcntl(handle, F_GETFL);
     int new_option = old_option | O_NONBLOCK;
-    fcntl(fd, F_SETFL, new_option);
+    fcntl(handle, F_SETFL, new_option);
     return old_option;
 }
 typedef struct _event_reactor_model_s {
@@ -66,7 +66,7 @@ int platform_io_process(EventReactor* reactor,EventTarget* target){
 
     if (event_reactor_model_map.count(reactor)) {
         event_reactor_model_s model = event_reactor_model_map.at(reactor);
-        event_reactor_model_map_locked.store(false);// TODO 处理锁定时机
+        event_reactor_model_map_locked.store(false);// TODO 处理锁定时机 WAIT机制 std::condition_variable::wait std::atomic<T>::wait()
         model.epoll_handle = epoll_create1(0);
         if (model.epoll_handle > -1) {
             model.epoll_events = new epoll_event[max_event_count];
