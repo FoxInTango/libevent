@@ -4,7 +4,7 @@ using namespace foxintango;
 #include <atomic>
 
 // TODO : LOAD FROM MODEL
-unsigned int max_event_count = 1024;
+unsigned int max_event_count  = 1024;
 unsigned int max_accept_count = 1024;
 int platform_io_process(EventReactor* reactor, EventTarget* target);
 
