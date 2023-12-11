@@ -55,6 +55,8 @@ int EventReactor::boot() {
 
 }
 
+#define __linux__
+
 #if defined(WIN32) || defined(_WIN32) || defined(_WIN32_) || defined(WIN64) || defined(_WIN64) || defined(_WIN64_)
 #elif defined(__linux__) || defined(ANDROID) || defined(_ANDROID_)
 int platform_io_process(EventReactor* reactor,EventTarget* target){
