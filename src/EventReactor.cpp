@@ -9,6 +9,7 @@ unsigned int max_accept_count = 1024;
 int platform_io_process(EventReactor* reactor, EventTarget* target);
 
 #if defined(WIN32) || defined(_WIN32) || defined(_WIN32_) || defined(WIN64) || defined(_WIN64) || defined(_WIN64_)
+//IOCP
 #elif defined(__linux__) || defined(ANDROID) || defined(_ANDROID_)
 #include <stdlib.h>
 #include <stdio.h>
