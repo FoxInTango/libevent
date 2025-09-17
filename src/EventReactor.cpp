@@ -8,10 +8,6 @@ EventReactor::EventReactor(const EventReactorCreateInfo& info) {
     eventCount  = info.EventCount;
     threadCount = info.ThreadCount;
     prepare();
-    for(size_t i = 0;i < threadCount;i ++) {
-        std::thread t(event_reactor_process,this);
-	t.detach();
-    }
 }
 EventReactor::~EventReactor() {}
 int EventReactor::acceptEndpoint(EventEndpoint* e){

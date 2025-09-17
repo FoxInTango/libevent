@@ -15,8 +15,6 @@ int   protocol;
 }EventEndpointCreateInfo;
 
 class foxintangoAPI EventEndpoint :public PlatformEventEndpointContext{
-protected:
-    EventReactor* reactor;
 public:
     EventEndpoint();
     virtual ~EventEndpoint();
