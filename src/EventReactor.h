@@ -1,22 +1,38 @@
-#ifndef _EVENT_REACTOR_H_
-#define _EVENT_REACTOR_H_
-#include "EventTarget.h"
+#ifndef _LIBEVENT_REACTOR_H_
+#define _LIBEVENT_REACTOR_H_
+
+
+#include <libplatform/libplatform.h>
 #include <libcpp/libcpp.h>
-
 namespaceBegin(foxintango)
+EXTERN_C_BEGIN
 
-class EventReactor{
+class EventEndpoint;
+
+class foxintangoAPI EventReactorProcessHandler{
 public:
-    EventReactor();
-    virtual ~EventReactor();
 public:
-    virtual int boot();
+    EventReactorProcessHandler();
+    virtual ~EventReactorProcessHandler();
 public:
-    int watch(int fd,const EventHandler* handler);
-    int unwatch(int fd);
-public:
-    int setHandler(EventHandler* handler,int target);
-    int removeHandler(EventHandler* handler);
+    //virtual int 
 };
+typedef struct _EventReactorCreateInfo{
+    size_t BufferSize;
+    size_t EventCount;
+    size_t ThreadCount;
+}EventReactorCreateInfo;
+class foxintangoAPI EventReactor :public PlatformEventReactorContext{ 
+public:
+    EventReactor(const EventReactorCreateInfo& info);
+   ~EventReactor();
+public:
+   void attach();
+   void detach();
+public:
+   int acceptEndpoint(EventEndpoint* endpoint);
+   int remvoeEndpoint(EventEndpoint* endpoint);
+};
+EXTERN_C_END
 namespaceEnd
-#endif // !_EVENT_REACTOR_H_
+#endif

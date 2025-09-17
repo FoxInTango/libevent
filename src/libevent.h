@@ -1,14 +1,10 @@
 #ifndef _LIB_EVENT_H_
 #define _LIB_EVENT_H_
 
-#include "Event.h"
-#include "EventTarget.h"
 #include "EventReactor.h"
-#include "EventHandler.h"
 #include "EventSession.h"
 
-#include <libmodule/libmodule.h>
-#include <libmodel/libmodel.h>
+//#include <libmodule/libmodule.h>
 #include <libcpp/libcpp.h>
 using namespace foxintango;
 
@@ -24,13 +20,6 @@ using namespace foxintango;
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-    int foxintangoAPI libevent_startup(const Model& model);
-    int foxintangoAPI libevent_reload(const Model& model);
-    int foxintangoAPI libevent_shutdown();
-
-    int foxintangoAPI libevent_listen(EventTarget* target);
-    int foxintangoAPI libevent_discard(EventTarget* target);
 
 #ifdef __cplusplus
 }
