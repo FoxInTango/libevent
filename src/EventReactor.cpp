@@ -1,6 +1,7 @@
 #include "EventReactor.h"
 #include "EventEndpoint.h"
 using namespace foxintango;
+#include <thread>
 #include <assert.h>
 EventReactor::EventReactor(const EventReactorCreateInfo& info) {
     bufferSize  = info.BufferSize;
@@ -8,8 +9,8 @@ EventReactor::EventReactor(const EventReactorCreateInfo& info) {
     threadCount = info.ThreadCount;
     prepare();
     for(size_t i = 0;i < threadCount;i ++) {
-        //std::thread t(event_reactor_process,this);
-	//t.detach();
+        std::thread t(event_reactor_process,this);
+	t.detach();
     }
 }
 EventReactor::~EventReactor() {}
