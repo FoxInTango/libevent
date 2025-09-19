@@ -3,13 +3,18 @@
 using namespace foxintango;
 #include <thread>
 #include <assert.h>
+
+EventReactor::EventReactor(){}
+
 EventReactor::EventReactor(const EventReactorCreateInfo& info) {
     bufferSize  = info.BufferSize;
     eventCount  = info.EventCount;
     threadCount = info.ThreadCount;
-    prepare();
+    PlatformEventReactorContext::prepare();
 }
+
 EventReactor::~EventReactor() {}
+
 int EventReactor::acceptEndpoint(EventEndpoint* e){
     assert(e);
 
